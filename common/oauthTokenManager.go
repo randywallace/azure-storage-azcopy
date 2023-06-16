@@ -41,7 +41,7 @@ import (
 
 	"github.com/Azure/go-autorest/autorest/adal"
 
-  "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 )
 
@@ -798,11 +798,10 @@ func (credInfo *OAuthTokenInfo) GetNewTokenFromMSI(ctx context.Context) (*adal.T
   cred, err := azidentity.NewDefaultAzureCredential(&azidentity.DefaultAzureCredentialOptions{})
   if err != nil {
     return nil, err
-  }
+  } 
 
   token, err := cred.GetToken(context.Background(), policy.TokenRequestOptions{
-    Scopes: []string{"https://storage.azure.com"},
-    //Scopes: []string{credInfo.Resource},
+    Scopes: []string{Resource},
   })
   if err != nil {
     return nil, err
