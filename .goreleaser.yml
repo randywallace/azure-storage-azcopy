@@ -1,18 +1,18 @@
 builds:
   -
     id: "azcopy"
-    main: .
     binary: azcopy
-    buildmode: c-archive
+    ldflags:
+      - -extldflags=-static -s -w -X main.build={{.Version}} 
 
     goos:
       - linux
-      - windows
+      #- windows
       #- darwin
 
     goarch:
       - amd64
-      - arm64
+      #- arm64
 
     ignore:
       - goos: windows
