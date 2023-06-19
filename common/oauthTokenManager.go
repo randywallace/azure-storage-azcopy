@@ -801,7 +801,7 @@ func (credInfo *OAuthTokenInfo) GetNewTokenFromMSI(ctx context.Context) (*adal.T
   } 
 
   token, err := cred.GetToken(context.Background(), policy.TokenRequestOptions{
-    Scopes: []string{Resource},
+    Scopes: []string{"https://storage.azure.com/.default"},
   })
   if err != nil {
     return nil, err
