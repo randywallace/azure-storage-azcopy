@@ -27,3 +27,7 @@ archives:
 
 universal_binaries:
 - replace: true
+
+before:
+  hooks:
+  - go mod tidy
