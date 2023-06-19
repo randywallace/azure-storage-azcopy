@@ -1,0 +1,29 @@
+builds:
+  -
+    id: "azcopy"
+    main: .
+    binary: azcopy
+
+    goos:
+      - linux
+      - windows
+      - darwin
+
+    goarch:
+      - amd64
+      - arm64
+
+    ignore:
+      - goos: windows
+        goarch: arm64
+      - goos: linux
+        goarch: arm64
+
+archives:
+  -
+    format_overrides:
+      - goos: windows
+        format: zip
+
+universal_binaries:
+- replace: true
