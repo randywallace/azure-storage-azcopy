@@ -2,8 +2,10 @@ builds:
   -
     id: "azcopy"
     binary: azcopy
-    ldflags:
-      - -extldflags=-static -s -w -X main.build={{.Version}} 
+
+    env:
+    # Resolves a requirement for alpine/scratch to include glibc
+    - CGO_ENABLED=0
 
     goos:
       - linux
