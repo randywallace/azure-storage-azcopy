@@ -3,6 +3,7 @@ builds:
     id: "azcopy"
     main: .
     binary: azcopy
+    buildmode: c-archive
 
     goos:
       - linux
